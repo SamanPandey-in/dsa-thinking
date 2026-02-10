@@ -4,7 +4,7 @@ This repository contains my solutions to Data Structures & Algorithms problems s
 
 The goal of this repo is not just to store solutions, but to **document learning**.
 
-> Each test case is meant to teach you something.
+> Each test case reveals what your algorithm still doesn’t understand.
 
 ---
 
@@ -38,7 +38,5 @@ Each solution file includes:
 
 This is an actively maintained repository.
 Solutions may evolve as I learn better approaches.
-
-Each test case reveals what your algorithm still doesn’t understand.
 
 Happy coding ✨
