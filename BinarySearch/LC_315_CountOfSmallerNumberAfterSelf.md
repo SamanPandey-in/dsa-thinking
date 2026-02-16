@@ -92,3 +92,75 @@ class Solution {
     - List Insertion: O(n)
 
 - But there is still a trap, in worst case the overall complexity will be O($n^2$)
+
+### 3. Per row binary search: O(m+log n)
+
+- Because:
+    Each row is sorted and the first element of each row is greater than the last element of the previous row.
+
+- Use the matrix properties to:
+
+    Find the correct row.
+
+    Instead of linear search inside the row → use binary search.
+
+```java
+public boolean searchMatrix(int[][] matrix, int target) {
+    int m = matrix.length, n = matrix[0].length;
+    for (int i = 0; i < m; i++) {
+        if (matrix[i][0] <= target && (i == m - 1 || matrix[i + 1][0] > target)) {
+            int l = 0, r = n - 1;
+            while (l <= r) {
+                int mid = l + (r - l) / 2;
+
+                if (matrix[i][mid] == target)
+                    return true;
+                else if (matrix[i][mid] < target)
+                    l = mid + 1;
+                else
+                    r = mid - 1;
+            }
+            return false;
+        }
+    }
+    return false;
+}
+```
+
+### 4. One pass binary search: O(log m*n)
+    
+- Because:
+
+    Each row is sorted.
+
+    First element of each row > last element of previous row.
+
+    The matrix behaves exactly like a single sorted 1D array.
+
+- Using linked list style, as the up and down rows are sorted sequentially
+
+```java
+public boolean searchMatrix(int[][] matrix, int target) {
+    int m = matrix.length; //rows
+    int n = matrix[0].length; //cols
+
+    int left = 0;
+    int right = m * n - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        int row = mid / n;
+        int col = mid % n;
+
+        if (matrix[row][col] == target) {
+            return true;
+        } else if (matrix[row][col] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return false;
+}
+```
