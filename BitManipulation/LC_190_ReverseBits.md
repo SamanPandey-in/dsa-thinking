@@ -7,8 +7,6 @@ Reverse bits of a given 32-bit unsigned integer.
 You are given a 32-bit integer `n`.  
 Return the integer obtained after reversing its binary bits.
 
----
-
 ## Step-by-step plan:
 
 ### Bit-by-bit reversal (Iterative): O(1)
@@ -32,10 +30,6 @@ Return the integer obtained after reversing its binary bits.
 
 - Time Complexity: O(32) → O(1)
 - Space Complexity: O(1)
-
----
-
-## Code:
 
 ```java
 public class Solution {
