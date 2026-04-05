@@ -2,18 +2,22 @@
 
 ## Description:
 
-The Leetcode file system keeps a log each time some user performs a change folder operation.
+You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.
 
-The operations are described below:
+You are given a list of strings operations, where operations[i] is the ith operation you must apply to the record and is one of the following:
 
-- "../" : Move to the parent folder of the current folder. (If you are already in the main folder, remain in the same folder).
-- "./" : Remain in the same folder.
-- "x/" : Move to the child folder named x (This folder is guaranteed to always exist).
-You are given a list of strings logs where logs[i] is the operation performed by the user at the ith step.
+- An integer x.
+    - Record a new score of x.
+- '+'.
+    - Record a new score that is the sum of the previous two scores.
+- 'D'.
+    - Record a new score that is the double of the previous score.
+- 'C'.
+    - Invalidate the previous score, removing it from the record.
 
-The file system starts in the main folder, then the operations in logs are performed.
+Return the sum of all the scores on the record after applying all the operations.
 
-Return the minimum number of operations needed to go back to the main folder after the change folder operations.
+The test cases are generated such that the answer and all intermediate calculations fit in a 32-bit integer and that all operations are valid.
 
 ## Approach 1 - Two loops:
 
